@@ -117,7 +117,6 @@ public class CustomerRegistrationController extends SelectorComposer<Component> 
 			if(mobile != null && Constant.DUPLICATE_VALUE.equals(checkMobileNumber)) {
 				mobileBox.setErrorMessage("Mobile Number is already used");
 			}
-			submitButton.setDisabled(Constant.DUPLICATE_VALUE.equals(checkMobileNumber)); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
