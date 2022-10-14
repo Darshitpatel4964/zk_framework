@@ -28,11 +28,11 @@
 					</row>
 					<row>
 						<label value="Email:"/>
-						<textbox id="emailBox" hflex="1" constraint="no empty: EmailBox is empty,/.+@.+\.[a-z]+/:Please enter proper Email address!" />
+						<textbox id="emailBox" hflex="1" constraint="no empty: Enter your email address!,/.+@.+\.[a-z]+/:Please enter proper Email address!" />
 					</row>
 					<row>
 						<label value="Mobile:"/>
-						<textbox id="mobileBox" hflex="1" constraint="no empty: MobileBox is empty,/.[0-9]{9}/:Enter a valid Mobile number!" maxlength="15"/>
+						<textbox id="mobileBox" hflex="1" constraint="no empty: Enter your mobile number!,/.[0-9]{9}/:Enter a valid Mobile number!" maxlength="15"/>
 					</row>
 					<row>
 					<label value="Select Gender:"/>
