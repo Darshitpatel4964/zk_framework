@@ -1,0 +1,46 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?page title="Customer List" contentType="text/html;charset=UTF-8"?>
+<?xel-method prefix="crt" name="date" class="com.crud.zkcrud.util.DateConversion"
+	signature="java.lang.String date(java.sql.Date)"?>
+<zk>
+	<window title="Customer List" border="normal" width="auto" id="searchButton" apply="com.crud.zkcrud.controller.CustomerListController">
+		<div style="text-align: right;">	
+			<button label=" Add New Customer" iconSclass="z-icon-plus" href="~./customer-form.zul"/>
+		</div>
+		<grid id="customerGrid">
+			<columns>
+				<column label="Id" width="50px" style="text-align: center;" sort="auto(id)"/>
+				<column label="Name" style="text-align: center;"/>
+				<column label="Date Of Birth" style="text-align: center;"/>
+				<column label="Mobile" style="text-align: center;"/>
+				<column label="Address" style="text-align: center;"/>
+				<column label="Age" width="50px" style="text-align: center;"/>
+				<column label="Gender" width="100px" style="text-align: center;"/>
+				<column label="Email" style="text-align: center;"/>
+				<column label="Actions" style="text-align: center;"/>
+			</columns>
+		<template name="model">
+			<row style="text-align: center;">
+				<label value="${each.id}" />
+				<label value="${each.firstName}${' '}${each.lastName}"/>
+				<label value="${crt:date(each.dateOfBirth)}" />
+				<label value="${each.mobile}" />
+				<label value="${each.address1}${' '}${each.address2}" />
+				<label value="${each.age}" />
+				<zk choose="each.gender">
+    			<zk when="${each.gender == '0'}">Male
+    			</zk>
+    			<zk when="${each.gender == '1'}">Female
+    			</zk>
+				</zk>
+				<label value="${each.email}" />
+				<hbox align="center" pack="center" hflex="1" vflex="1">
+					<button iconSclass="z-icon-edit" forward="onEditButton(${each})" style="border: 2px solid green" />
+					<button iconSclass="z-icon-trash-o" forward="onDeleteButton(${each})" style="border: 2px solid red;"/>
+				</hbox>
+			</row>
+		</template>
+		</grid>
+		<include id="includeTag"/>
+	</window>
+</zk>

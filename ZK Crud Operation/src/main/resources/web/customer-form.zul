@@ -1,0 +1,60 @@
+<?page title="Customer form" contentType="text/html;charset=UTF-8"?>
+	<vlayout hflex="min"  style="margin:0px auto;" apply="com.crud.zkcrud.controller.CustomerRegistrationController">
+		<hbox align="center" pack="center" hflex="1" vflex="1">
+			<grid id="formGrid" hflex="min">
+				<auxhead>
+					<auxheader colspan="2" label="Customer Form" iconSclass="z-icon-user-circle-o"/>
+				</auxhead>
+				<columns visible="false">
+					<column></column>
+					<column></column>
+				</columns>
+				<rows>
+					<row>
+						<label value="First name:"/>
+						<textbox id="firstnameBox" hflex="1" maxlength="30" constraint="/.[a-zA-Z]+/:Enter a valid Firstname" />
+					</row>
+					<row>
+						<label value="Last name:"/>
+						<textbox id="lastnameBox" hflex="1"  maxlength="30" constraint="/.[a-zA-Z]+/:Enter a valid Lastname" />
+					</row>
+					<row>
+						<label value="Date Of Birth:"/>
+						<datebox id="dobBox" hflex="1" constraint="no empty:Enter your birthdate!,no future,no today" />
+					</row>
+					<row>
+						<label value="Age:"/>
+						<textbox id="ageBox" hflex="1" constraint="no negative,/[0-9]{2}/:Enter a valid age!" />
+					</row>
+					<row>
+						<label value="Email:"/>
+						<textbox id="emailBox" hflex="1" constraint="no empty: EmailBox is empty,/.+@.+\.[a-z]+/:Please enter proper Email address!" />
+					</row>
+					<row>
+						<label value="Mobile:"/>
+						<textbox id="mobileBox" hflex="1" constraint="no empty: MobileBox is empty,/.[0-9]{9}/:Enter a valid Mobile number!" maxlength="15"/>
+					</row>
+					<row>
+					<label value="Select Gender:"/>
+						<radiogroup id="genderRadio">
+							<radio id="maleRadio" radiogroup="genderRadio" label="Male" iconSclass="z-icon-male" checked="true"/>
+							<radio id="femaleRadio" radiogroup="genderRadio" label="Female" iconSclass="z-icon-female"/>
+						</radiogroup>
+					</row>
+					<row>
+						<label value="Address 1:"/>
+						<textbox id="address1Box" hflex="1" constraint="/.[a-zA-Z0-9]+/:Please provide your Address1!" />
+					</row>
+					<row>
+						<label value="Address 2:"/>
+						<textbox id="address2Box" hflex="1" constraint="/.[a-zA-Z0-9]+/:Please provide your Address2!" />
+					</row>
+				</rows>
+			</grid>
+		</hbox>
+			<hbox align="left" pack="left" hflex="1" vflex="-10">
+				<hlayout>
+					<button id="submitButton" label="Submit"/>
+				</hlayout>
+			</hbox>
+	</vlayout>
